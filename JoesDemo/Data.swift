@@ -24,6 +24,7 @@ class Api {
         
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let posts = try! JSONDecoder().decode([Post].self, from: data!)
+            print(posts)
             DispatchQueue.main.async {
                 completion(posts)
             }
